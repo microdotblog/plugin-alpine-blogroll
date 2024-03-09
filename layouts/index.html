@@ -75,8 +75,10 @@
 <div class="home_blogroll">
 	<b>Recommendations</b>
 
-	<p>The web is a big, wonderful place. Try visiting some of my favorite blogs.</p>
-
+	{{ if ne .Site.Params.blogroll_about "" }}
+		<p>{{ .Site.Params.blogroll_about }}</p>
+	{{ end }}
+	
 	<ul>
 		{{ range .Site.Data.blogrolls.recommendations }}
 			<li><a href="{{ .url }}">{{ .name }}: <span>{{ (urls.Parse .url).Hostname }}</span></a></li>
