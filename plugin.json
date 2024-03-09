@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "title": "Alpine blogroll",
+  "description": "Add recommendations blogroll to sidebar in Alpine or Marfa themes.",
+  "fields": [
+    {
+      "field": "params.blogroll_about",
+      "label": "About"
+    }
+  ]
+}
