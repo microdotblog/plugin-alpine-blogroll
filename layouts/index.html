@@ -73,18 +73,17 @@
 </ul>
 
 <div class="home_blogroll">
-    <b>Recommendations</b>
+	<b>Recommendations</b>
 
 	<p>The web is a big, wonderful place. Try visiting some of my favorite blogs.</p>
 
 	<ul>
-{{ range .Site.Data.blogrolls.recommendations }}
-		<li><a href="{{ .url }}">{{ .name }}: <span>{{ (urls.Parse .url).Hostname }}</span></a></li>
-{{ end }}
-</ul>
+		{{ range .Site.Data.blogrolls.recommendations }}
+			<li><a href="{{ .url }}">{{ .name }}: <span>{{ (urls.Parse .url).Hostname }}</span></a></li>
+		{{ end }}
+	</ul>
 
 	<p>Blogroll as: <a href="/.well-known/recommendations.opml">OPML</a> | <a href="/.well-known/recommendations.json">JSON</a></p>
-
 </div>
 
 </div>
