@@ -5,7 +5,8 @@
   "fields": [
     {
       "field": "params.blogroll_about",
-      "label": "About"
+      "label": "About",
+      "placeholder": "Intro text to include above blogs list."
     }
   ]
 }
