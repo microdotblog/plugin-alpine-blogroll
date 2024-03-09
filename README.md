@@ -1,2 +1,3 @@
-# plugin-alpine-blogroll
-Add the recommendations blogroll to the home page in Alpine or Marfa themes.
+# Recommendations blogroll for Alpine and Marfa themes
+
+⚠️ This plug-in is an experiment and requires features not yet released in Micro.blog.
