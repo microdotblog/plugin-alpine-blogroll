@@ -1,0 +1,100 @@
+{{ define "main" }}
+
+<style>
+
+#wrapper {
+	max-width: 1000px;
+}
+
+.home_columns {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.home_posts {
+	flex: 1;
+	padding-left: 20px;
+	padding-right: 80px;
+	box-sizing: border-box;
+}
+
+.home_blogroll {
+	padding-left: 20px;
+	padding-right: 20px;
+	box-sizing: border-box;
+	width: 30%;
+	font-size: 15px;
+}
+
+.home_blogroll ul {
+	padding-top: 14px;
+}
+
+.home_blogroll ul li {
+	list-style-type: none;
+	padding-bottom: 4px;
+}
+
+.home_blogroll a {
+	text-decoration: none;
+	color: black;
+}
+
+.home_blogroll a span {
+	color: gray;
+}
+
+
+@media screen and (max-width: 600px) {
+	.home_blogroll {
+		display: none;
+	}
+}
+
+</style>
+
+<div class="home_columns">
+
+<ul id="post-list" class="h-feed home_posts">
+
+{{ if or .IsHome .Site.Params.paginate_categories }}
+	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
+	{{ $list := $paginator.Pages }}
+	{{ range $list  }}
+		{{ partial "post-item.html" . }}
+	{{ end }}
+{{ else }}
+	{{ $list := where .Site.Pages.ByDate.Reverse "Type" "post" }}
+	{{ range $list  }}
+		{{ partial "post-item.html" . }}
+	{{ end }}
+{{ end }}
+
+</ul>
+
+<div class="home_blogroll">
+    <b>Recommendations</b>
+
+	<p>The web is a big, wonderful place. Try visiting some of my favorite blogs.</p>
+
+	<ul>
+{{ range .Site.Data.blogrolls.recommendations }}
+		<li><a href="{{ .url }}">{{ .name }}: <span>{{ (urls.Parse .url).Hostname }}</span></a></li>
+{{ end }}
+</ul>
+
+	<p>Blogroll as: <a href="/.well-known/recommendations.opml">OPML</a> | <a href="/.well-known/recommendations.json">JSON</a></p>
+
+</div>
+
+</div>
+
+{{ if .IsHome }}
+	{{ if .Site.Params.paginate_home }}
+		{{ partial "pagination" . }}
+	{{ end }}
+{{ else if .Site.Params.paginate_categories }}
+	{{ partial "pagination" . }}
+{{ end }}
+
+{{ end }}
