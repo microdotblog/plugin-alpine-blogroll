@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.0.1",
   "title": "Recommendations for Alpine",
   "description": "Add the recommendations blogroll to a sidebar in Alpine or Marfa themes.",
   "fields": [
