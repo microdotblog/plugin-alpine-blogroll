@@ -1,6 +1,6 @@
 {
   "Params": {
     "blogroll_about": "",
-    "show_hostname": true
+    "blogroll_show_hostname": true
   }
 }
