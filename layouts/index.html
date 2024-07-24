@@ -85,7 +85,11 @@
 	
 	<ul>
 		{{ range .Site.Data.blogrolls.recommendations }}
-			<li><a href="{{ .url }}">{{ .name }}: <span>{{ (urls.Parse .url).Hostname }}</span></a></li>
+			{{ if $.Site.Params.blogroll_show_hostname }}
+				<li><a href="{{ .url }}">{{ .name }}: <span>{{ (urls.Parse .url).Hostname }}</span></a></li>
+			{{ else }}
+				<li><a href="{{ .url }}">{{ .name }}</a></li>
+			{{ end }}
 		{{ end }}
 	</ul>
 
